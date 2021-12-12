@@ -28,7 +28,7 @@ function App() {
 
   return (
     <Router>
-    <div>
+    <div className='h-full w-full'>
 
       <Switch>
         <Route exact path="/" component={() => <Home 

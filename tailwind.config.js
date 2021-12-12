@@ -13,6 +13,9 @@ module.exports = {
       maxHeight: {
         "90":"800px",
         "90%": "93vh"
+      },
+      colors: {
+        "amber": "rgb(102, 103, 171)"
       }
     }
   },
