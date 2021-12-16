@@ -37,13 +37,8 @@ function Home(props){
   
   //Transition function for when the user wants to shift from logging in to signing up, and vice-versa
   function onTransition() {
-    // emailLogInInput.current.value = ""
-    // passwordLogInput.current.value = ""
-    // emailSignUpInput.current.value = ""
-    // passwordSignUpInput.current.value = ""
-    // confirmSignUpInput.current.value = ""
-    // setLogInReminder("")
-    // setSignUpReminder("")
+    setLogInReminder("")
+    setSignUpReminder("")
 
     if(homeState.state==="login"){
       setHomeState(signupState)
