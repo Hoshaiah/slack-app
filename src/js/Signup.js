@@ -1,9 +1,10 @@
+import { useState } from "react/cjs/react.development"
 
 
 function Signup(props){
   const {emailSignUpInput, passwordSignUpInput, confirmSignUpInput, signUpReminder, setSignUpReminder, setHomeState, emailLogInInput, passwordLogInput, setLogInReminder, logInVisiblity, setLogInVisibility, signUpVisibility, setSignUpVisibility } = props
 
-
+  const [newLoginInput, setNewLoginInput] = useState("")
   //RegisterUser function for when the sign up button is clicked
   async function registerUser(event){
     event.preventDefault()
@@ -26,20 +27,24 @@ function Signup(props){
     
     // runs only if sign up was successful (determined using response status)
     if(user.status >= 200 && user.status<=299 ){
-      emailLogInInput.current.value = emailSignUpInput.current.value
-      passwordLogInput.current.value = passwordSignUpInput.current.value
-      emailSignUpInput.current.value = ""
-      passwordSignUpInput.current.value = ""
-      confirmSignUpInput.current.value = ""
-      let loginState =  {
-        state: "login",
-        buttonText: "Sign Up",
-        captionText: "Don't have an Account?",
-        transitionClass: "translate-x-0 "
-      }
-      //switches pane to login if signup was successful and adds reminder
-      setHomeState(loginState)
-      setLogInReminder("Sign up was successful. You may now log in.")
+      let email =emailSignUpInput.current.value 
+      let password =  passwordSignUpInput.current.value
+      setTimeout(() => {
+        let loginState =  {
+          state: "login",
+          buttonText: "Sign Up",
+          captionText: "Don't have an Account?",
+          transitionClass: "translate-x-0 "
+        }
+        setHomeState(loginState)
+        setLogInReminder("Sign up was successful. You may now log in.")
+        emailLogInInput.current.value = email
+        passwordLogInput.current.value = password
+        
+        //switches pane to login if signup was successful and adds reminder
+        emailLogInInput.current.focus()
+      }, 300)
+
     } else {
       //if api call is unsuccessful, the error is displayed
       setSignUpReminder(userData.errors.full_messages[0])
@@ -49,13 +54,6 @@ function Signup(props){
     if(e.key==="Enter"){
       e.preventDefault()
       registerUser(e)
-      // emailLogInInput.current.focus()
-      emailSignUpInput.current.blur()
-      passwordSignUpInput.current.blur()
-      confirmSignUpInput.current.blur()
-      setTimeout(() => {
-        emailLogInInput.current.focus()
-      }, 1000);
     }
   }
 
