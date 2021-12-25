@@ -49,9 +49,9 @@ function Home(props){
 
   if(Object.keys(currentUser).length === 0){
     return (
-    <div className='flex h-full w-full bg-gradient-to-t from-indigo-500 to-gray-100'>
-      <div className = "lg:border-8 lg:border-none bg-white rounded-lg absolute sm:w-full sm:full lg:h-100 lg:w-100 lg:top-1/2 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 w-full h-full flex justify-center items-center">
-        <div className= {`h-44 w-50 border-8 border-none absolute right-0 z-10 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass} lg:visible invisible`} >
+    <div className='flex h-full w-full bg-gradient-to-t from-indigo-500 to-gray-100 items-center justify-center'>
+      <div className = "lg:border-8 lg:border-none bg-white rounded-lg absolute sm:w-1/2 sm:h-1/2 lg:h-100 lg:w-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex justify-center items-center">
+        <div className= {`h-44 w-50 border-8 border-none absolute right-0 z-10 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass} lg:block hidden`} >
           <h2 className="mt-6 text-center text-2xl font-extrabold text-gray-900">{homeState.captionText}</h2>
 
           <button
@@ -62,7 +62,7 @@ function Home(props){
             {homeState.buttonText}
           </button>
         </div>
-        <div className= {`h-44 w-50 border-8 border-none absolute left-0 z-0 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass2} lg:visible invisible`} >
+        <div className= {`h-44 w-full sm:w-50 border-8 border-none absolute left-0 z-0 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass2} lg:visible invisible`} >
           { homeState.state ==="login" ? <Login
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
