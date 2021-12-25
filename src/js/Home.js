@@ -62,7 +62,7 @@ function Home(props){
             {homeState.buttonText}
           </button>
         </div>
-        <div className= {`h-44 w-50 border-8 border-none absolute left-0 z-10 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass2} lg:visible invisible`} >
+        <div className= {`h-44 w-50 border-8 border-none absolute left-0 z-0 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass2} lg:visible invisible`} >
           { homeState.state ==="login" ? <Login
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
