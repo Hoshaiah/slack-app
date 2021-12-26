@@ -22,15 +22,15 @@ function Home(props){
     state: "signup",
     buttonText: "Log In",
     captionText: "Already have an Account?",
-    transitionClass: "-translate-x-full rounded-l-lg ",
-    transitionClass2: "translate-x-full rounded-l-lg "
+    transitionClass: "lg:-translate-x-full lg:rounded-l-lg ",
+    transitionClass2: "lg:translate-x-full lg:rounded-l-lg "
   }
   let loginState =  {
     state: "login",
     buttonText: "Sign Up",
     captionText: "Don't have an Account?",
-    transitionClass: "translate-x-0 rounded-r-lg",
-    transitionClass2: "translate-x-0 rounded-r-lg"
+    transitionClass: "lg:translate-x-0 lg:rounded-r-lg",
+    transitionClass2: "lg:translate-x-0 lg:rounded-r-lg"
   }
   const [homeState, setHomeState] = useState(loginState)
   
@@ -62,7 +62,7 @@ function Home(props){
             {homeState.buttonText}
           </button>
         </div>
-        <div className= {`h-44 w-full sm:w-50 border-8 border-none absolute left-0 z-0 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass2} lg:visible invisible`} >
+        <div className= {`h-44 w-full sm:w-50 border-8 border-none absolute left-0 z-0 bg-indigo-50 text-center h-full transform transition-all delay-200 ease-in-out duration-700 ${homeState.transitionClass2} lg:visible`} >
           { homeState.state ==="login" ? <Login
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
@@ -74,6 +74,7 @@ function Home(props){
               setLogInVisibility = {setLogInVisibility}
               signUpVisibility = {signUpVisibility}
               setSignUpVisibility = {setSignUpVisibility}
+              onTransition = {onTransition}
               /> : <Signup
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
@@ -90,6 +91,7 @@ function Home(props){
               setLogInVisibility = {setLogInVisibility}
               signUpVisibility = {signUpVisibility}
               setSignUpVisibility = {setSignUpVisibility}
+              onTransition  = {onTransition}
               />
 
           }

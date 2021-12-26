@@ -2,7 +2,7 @@ import {useHistory } from 'react-router';
 
 
 function Login(props){
-  const {setCurrentUser, emailLogInInput, passwordLogInput, logInReminder, setLogInReminder, logInVisiblity, setLogInVisibility, signUpVisibity, setSignUpVisibility } = props
+  const {setCurrentUser, emailLogInInput, passwordLogInput, logInReminder, setLogInReminder, logInVisiblity, setLogInVisibility, signUpVisibity, setSignUpVisibility, onTransition } = props
   let history = useHistory()
 
 
@@ -140,7 +140,7 @@ function Login(props){
             </button>
 
             <button
-            onClick={logInvisible}
+            onClick={onTransition}
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-indigo-600 text-sm font-medium rounded-md text-indigo bg-white my-2 lg:invisible"
             >

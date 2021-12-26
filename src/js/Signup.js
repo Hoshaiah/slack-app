@@ -2,7 +2,7 @@ import { useState } from "react/cjs/react.development"
 
 
 function Signup(props){
-  const {emailSignUpInput, passwordSignUpInput, confirmSignUpInput, signUpReminder, setSignUpReminder, setHomeState, emailLogInInput, passwordLogInput, setLogInReminder, logInVisiblity, setLogInVisibility, signUpVisibility, setSignUpVisibility } = props
+  const {emailSignUpInput, passwordSignUpInput, confirmSignUpInput, signUpReminder, setSignUpReminder, setHomeState, emailLogInInput, passwordLogInput, setLogInReminder, logInVisiblity, setLogInVisibility, signUpVisibility, setSignUpVisibility, onTransition} = props
 
   const [newLoginInput, setNewLoginInput] = useState("")
   //RegisterUser function for when the sign up button is clicked
@@ -63,7 +63,7 @@ function Signup(props){
   }
 
   return (
-    <div className={`lg:min-h-full absolute lg:items-center lg:justify-center py-12 px-4 sm:px-6 lg:px-8 lg:visible  ${signUpVisibility} w-full h-full h-min border border-transparent`}>
+  <div className={`lg:min-h-full absolute lg:items-center lg:justify-center py-12 px-4 sm:px-6 lg:px-8 lg:visible w-full h-full h-min border border-transparent`}>
       <div className="max-w-md w-full space-y-8">
         <div>
           <img
@@ -139,7 +139,7 @@ function Signup(props){
               Sign up
             </button>
             <button
-            onClick={signUpVisible}
+            onClick={onTransition}
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-indigo-600 text-sm font-medium rounded-md text-indigo bg-white my-2 lg:invisible"
             >
