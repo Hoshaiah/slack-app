@@ -13,7 +13,7 @@ function Login(props){
       "email": emailLogInInput.current.value,
       "password": passwordLogInput.current.value
     }
-    let url = "https://206.189.91.54/api/v1/auth/sign_in/"
+    let url = "http://206.189.91.54/api/v1/auth/sign_in/"
     let headersList =  ["access-token", "client", "expiry", "uid"]
 
     //fetches api using information from body and stores response in "userData"
@@ -65,7 +65,7 @@ function Login(props){
         <div classname="w-full">
           <img
             className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+            src="http://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
             alt="Workflow"
           />
 

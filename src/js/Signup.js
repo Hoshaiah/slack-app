@@ -4,7 +4,7 @@ import { useState } from "react/cjs/react.development"
 function Signup(props){
   const {emailSignUpInput, passwordSignUpInput, confirmSignUpInput, signUpReminder, setSignUpReminder, setHomeState, emailLogInInput, passwordLogInput, setLogInReminder, logInVisiblity, setLogInVisibility, signUpVisibility, setSignUpVisibility, onTransition} = props
 
-  const [newLoginInput, setNewLoginInput] = useState("")
+  // const [newLoginInput, setNewLoginInput] = useState("")
   //RegisterUser function for when the sign up button is clicked
   async function registerUser(event){
     event.preventDefault()
@@ -14,7 +14,7 @@ function Signup(props){
       "password": passwordSignUpInput.current.value,
       "password_confirmation": confirmSignUpInput.current.value
     }
-    let url = "https://206.189.91.54/api/v1/auth/"
+    let url = "http://206.189.91.54/api/v1/auth/"
 
     //fetches api using information from body and stores response in "userData"
     const user = await fetch(url,
