@@ -9,9 +9,7 @@ function Dashboard (props) {
     const {currentUser, setCurrentUser} = props
     const [activePage, setActivePage] = useState("Welcome")
     const userInfo = JSON.parse(localStorage.getItem('currentUser'))
-    const userHeaders = userInfo.headers
-    const userId = userInfo.data.id
-    const [value,setValue] = useState(0)
+    const [value,setValue] = useState(0 )
     const [channelName,setChannelName] = useState("")
     const [channelID,setChannelID] = useState()
     const [recipientName, setRecipientName] = useState("") //copy of channelName state for DM
@@ -20,7 +18,9 @@ function Dashboard (props) {
     const [counter, setCounter] = useState(0)
     const [counter2, setCounter2] = useState(0)
     const [showMenu,setShowMenu] = useState(false)
-    let greetings = `Hello, ${userInfo.data.email}!`
+    const userHeaders = currentUser ? currentUser.headers : {}
+    const userId = currentUser.data ? currentUser.data.id : ""
+    let greetings = currentUser.data ? `Hello, ${currentUser.data.email}!` : ""
 
     if(Object.keys(currentUser).length === 0) {
         return <Redirect to="/"/>
