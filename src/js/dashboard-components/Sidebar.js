@@ -3,7 +3,7 @@ import {useState,useEffect} from 'react'
 
 function Sidebar(props) {
 
-    const {greetings,setActivePage,userHeaders,value,setChannelName,setChannelID,setListOfMessages, setRecipientName, setRecipientID, counter, setCounter,mobileView,showMenu,setShowMenu, counter2, setCounter2} = props
+    const {greetings,setActivePage,userHeaders,value,setChannelName,setChannelID,setListOfMessages, setRecipientName, setRecipientID, counter, setCounter,mobileView,showMenu,setShowMenu, counter2, setCounter2, currentUser, setCurrentUser} = props
     const [usersChannelVisible, setUsersChannelVisible] = useState(false)
     const [usersDirectMessagesVisible, setUsersDirectMessagesVisible] = useState(false) //renders list of users
     const [addButtonVisible, setAddButtonVisible] = useState(false)
@@ -20,7 +20,14 @@ function Sidebar(props) {
     let usersInChannels = [] //array where user IDs of all members in user's channels are pushed
     let userEmailsInChannels = [] //array where user emails are pushed based on user IDs
 
-    userHeaders[`Content-Type`] =  "application/json"
+    // userHeaders[`Content-Type`] =  "application/json"
+    // setCurrentUser({
+    //     ...currentUser,
+    //     headers: {
+    //         ...currentUser.headers,
+    //         "Content-Type":"application/json"
+    //     }
+    // })
 
     async function retrieveUserChannels(){
         setLoading(true)
