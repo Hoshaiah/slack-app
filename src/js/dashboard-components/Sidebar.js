@@ -31,7 +31,7 @@ function Sidebar(props) {
 
     async function retrieveUserChannels(){
         setLoading(true)
-        await fetch("http://206.189.91.54/api/v1/channels",
+        await fetch("https://slackapi.avionschool.com/api/v1/channels",
             {method: "GET",
             headers: userHeaders, 
             mode:"cors"})
@@ -118,7 +118,7 @@ function Sidebar(props) {
 
     async function loadUsersFromChannel(){ // stores user IDs of all users in user's channels in an array
         setLoading1(true)
-        await fetch("http://206.189.91.54/api/v1/channels", //fetches all channels of user
+        await fetch("https://slackapi.avionschool.com/api/v1/channels", //fetches all channels of user
             {method: "GET",
             headers: userHeaders, 
             mode:"cors"})
@@ -126,7 +126,7 @@ function Sidebar(props) {
         .then(userChannels=>{
             let userChannelsID = userChannels.data.map(data => data.id)
                 userChannelsID.map(channelID => 
-                    fetch(`http://206.189.91.54/api/v1/channels/${channelID}`, //fetches the channel details via channel ID then collects all the user IDs
+                    fetch(`https://slackapi.avionschool.com/api/v1/channels/${channelID}`, //fetches the channel details via channel ID then collects all the user IDs
                     {method: "GET",
                     headers: userHeaders,
                     mode: "cors"})
@@ -158,7 +158,7 @@ function Sidebar(props) {
     }
 
     async function loadAllUsers (returnedArray){ // fetches all users ID (to be used for cross reference)
-        await (fetch("http://206.189.91.54/api/v1/users", 
+        await (fetch("https://slackapi.avionschool.com/api/v1/users", 
         {method: "GET",
         headers: userHeaders,
         mode: "cors"}))
