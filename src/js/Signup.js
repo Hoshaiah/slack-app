@@ -14,7 +14,7 @@ function Signup(props){
       "password": passwordSignUpInput.current.value,
       "password_confirmation": confirmSignUpInput.current.value
     }
-    let url = "https://slackapi.avionschool.com/api/v1/auth/"
+    let url = "http://206.189.91.54/api/v1/auth/"
 
     //fetches api using information from body and stores response in "userData"
     const user = await fetch(url,
