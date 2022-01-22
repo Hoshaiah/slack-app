@@ -12,7 +12,7 @@ function DirectMessage(props) {
     }
     
     async function sendMessage(body){
-        await fetch("http://206.189.91.54/api/v1/messages",
+        await fetch("https://slackapi.avionschool.com/api/v1/messages",
             {method: "POST",
             headers: userHeaders, 
             mode:"cors",
@@ -50,7 +50,7 @@ function DirectMessage(props) {
     }
 
     async function retrieveMessages(){
-        await fetch(`http://206.189.91.54/api/v1/messages?receiver_id=${recipientID}&receiver_class=User`,
+        await fetch(`https://slackapi.avionschool.com/api/v1/messages?receiver_id=${recipientID}&receiver_class=User`,
         {method: "GET",
         headers: userHeaders, 
         mode:"cors"})
