@@ -20,7 +20,7 @@ function Sidebar(props) {
     let usersInChannels = [] //array where user IDs of all members in user's channels are pushed
     let userEmailsInChannels = [] //array where user emails are pushed based on user IDs
 
-    userHeaders[`Content-Type`] =  "application/json"
+    // userHeaders[`Content-Type`] =  "application/json"
     // setCurrentUser({
     //     ...currentUser,
     //     headers: {

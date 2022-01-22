@@ -5,7 +5,7 @@ function AddChannel(props) {
     const {userHeaders,userId,setValue,value,setAlertMessage,setAlertWindowVisible} = props
     const [channelName,setChannelName] = useState("")
 
-    userHeaders[`Content-Type`] =  "application/json"
+    // userHeaders[`Content-Type`] =  "application/json"
     
     function handleChange(e) {
         setChannelName(e.target.value)
