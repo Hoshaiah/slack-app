@@ -13,7 +13,7 @@ function Login(props){
       "email": emailLogInInput.current.value,
       "password": passwordLogInput.current.value
     }
-    let url = "http://206.189.91.54/api/v1/auth/sign_in/"
+    let url = "https://slackapi.avionschool.com/api/v1/auth/sign_in/"
     let headersList =  ["access-token", "client", "expiry", "uid"]
 
     //fetches api using information from body and stores response in "userData"
