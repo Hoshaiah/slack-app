@@ -11,7 +11,7 @@ function DirectMessage(props) {
         setMessage(e.target.value)
     }
     
-    async function sendMessage(body){
+    async function sendMessage(){
         await fetch(`https://slackapi.avionschool.com/api/v1/messages?receiver_id=${recipientID}&receiver_class=User&body=${message}`,
             {method: "POST",
             headers: userHeaders, 
@@ -25,25 +25,14 @@ function DirectMessage(props) {
         })
     }
     function handleSentMessage(){
-        const body={
-            "receiver_id": recipientID, // UserID
-            "receiver_class": "User",
-            "body": message
-        }
-        sendMessage(body)
+        sendMessage()
         setMessage("")
     }
 
     function handleSentMessageEnterKey(e){
         if (e.key === 'Enter') {
-        e.preventDefault()
-        const body={
-            "receiver_id": recipientID, // UserID
-            "receiver_class": "User",
-            "body": message
-        }
-        sendMessage(body)
-        setMessage("")
+            e.preventDefault()
+            handleSentMessage()
         }
     }
 
