@@ -9,7 +9,6 @@ function Header({greetings,mobileView,setShowMenu,showMenu}) {
         }
     }
 
-    console.log(greetings)
     return (
         
         <div className={`bg-purple-800 text-white font-bold flex ${!mobileView ? "justify-left" : "justify-between" } p-3`}>

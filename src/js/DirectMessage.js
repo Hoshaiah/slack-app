@@ -32,6 +32,7 @@ function DirectMessage(props) {
             "receiver_class": "User",
             "body": message
         }
+        console.log("asdfasdf")
         sendMessage(body)
         setMessage("")
     }
@@ -44,6 +45,7 @@ function DirectMessage(props) {
             "receiver_class": "User",
             "body": message
         }
+        console.log("testtest")
         sendMessage(body)
         setMessage("")
         }
@@ -61,7 +63,6 @@ function DirectMessage(props) {
                 let tempListOfMessages = []
                 messagesData.forEach(message => {
                     tempListOfMessages.push(message)
-                    console.log(message)
                 })
                 setListOfMessages(tempListOfMessages)
             } else {
@@ -122,7 +123,7 @@ function DirectMessage(props) {
 
             <div className="p-4">
                 <textarea className="border-solid border-purple-300 border-2 resize-none w-full h-40 p-4" name="message" onChange={handleChange} onKeyPress={handleSentMessageEnterKey} value={message}></textarea>
-                <button class="bg-purple-700 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded" onClick={handleSentMessage}>
+                <button class="bg-purple-700 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded" onClick={() => handleSentMessage()}>
                     Send Message
                 </button>
             </div>
