@@ -12,11 +12,10 @@ function DirectMessage(props) {
     }
     
     async function sendMessage(body){
-        await fetch("https://slackapi.avionschool.com/api/v1/messages",
+        await fetch(`https://slackapi.avionschool.com/api/v1/messages?receiver_id=${recipientID}&receiver_class=User&body=${message}`,
             {method: "POST",
             headers: userHeaders, 
-            mode:"cors",
-            body: JSON.stringify(body)})
+            mode:"cors"})
         .then(response=>response.json())
         .then(data=>{
             setValue(value=>value+1)
@@ -25,14 +24,12 @@ function DirectMessage(props) {
             console.log(error)
         })
     }
-
     function handleSentMessage(){
         const body={
             "receiver_id": recipientID, // UserID
             "receiver_class": "User",
             "body": message
         }
-        console.log("asdfasdf")
         sendMessage(body)
         setMessage("")
     }
@@ -45,7 +42,6 @@ function DirectMessage(props) {
             "receiver_class": "User",
             "body": message
         }
-        console.log("testtest")
         sendMessage(body)
         setMessage("")
         }
@@ -77,7 +73,6 @@ function DirectMessage(props) {
 
     useEffect( ()=>{
         retrieveMessages()
-        console.log("I RAN")
     },[recipientName,value])
 
     useEffect(() => {
