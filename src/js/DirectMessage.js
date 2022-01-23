@@ -19,7 +19,7 @@ function DirectMessage(props) {
         .then(response=>response.json())
         .then(data=>{
             setValue(value=>value+1)
-            console.log(data)})
+            })
         .catch((error) => {
             console.log(error)
         })
