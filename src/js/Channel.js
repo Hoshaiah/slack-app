@@ -17,12 +17,11 @@ function Channel(props) {
         setMessage(e.target.value)
     }
     
-    async function sendMessage(body){
-        await fetch("https://slackapi.avionschool.com/api/v1/messages",
+    async function sendMessage(){
+        await fetch(`https://slackapi.avionschool.com/api/v1/messages?receiver_id=${channelID}&receiver_class=Channel&body=${message}`,
             {method: "POST",
             headers: userHeaders, 
-            mode:"cors",
-            body: JSON.stringify(body)})
+            mode:"cors"})
         .then(response=>response.json())
         .then(data=>{
             setValue(value=>value+1)})
@@ -32,25 +31,14 @@ function Channel(props) {
     }
 
     function handleSentMessage(){
-        const body={
-            "receiver_id": channelID,
-            "receiver_class": "Channel",
-            "body": message
-        }
-        sendMessage(body)
+        sendMessage()
         setMessage("")
     }
 
     function onKeyHandleSentMessage(e){
         if (e.key === "Enter"){
             e.preventDefault()
-            const body={
-                "receiver_id": channelID,
-                "receiver_class": "Channel",
-                "body": message
-            }
-            sendMessage(body)
-            setMessage("")
+            handleSentMessage()
         }
     }
 
