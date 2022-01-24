@@ -5,11 +5,10 @@ function AddMember(props) {
     const [accountID,setAccountID] = useState("")
 
     async function addUser(body){
-        await fetch("https://slackapi.avionschool.com/api/v1/channel/add_member",
+        await fetch(`https://slackapi.avionschool.com/api/v1/channel/add_member?id=${channelID}&member_id=${accountID}`,
             {method: "POST",
             headers: userHeaders, 
-            mode:"cors",
-            body: JSON.stringify(body)})
+            mode:"cors"})
         .then(response=>response.json())
 
         .then(data=>{

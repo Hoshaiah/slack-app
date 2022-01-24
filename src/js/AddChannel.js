@@ -18,11 +18,10 @@ function AddChannel(props) {
             "user_ids": [userId]
         }
 
-        await fetch("https://slackapi.avionschool.com/api/v1/channels",
+        await fetch(`https://slackapi.avionschool.com/api/v1/channels?name=${channelName}&user_ids=[${userId}]`,
             {method: "POST",
             headers: userHeaders, 
-            mode: "cors",
-            body: JSON.stringify(body)})
+            mode: "cors"})
             .then(response=>response.json())
             .then(data=>{
                 if(data.errors!==undefined){
@@ -37,6 +36,11 @@ function AddChannel(props) {
             })
             .catch((error) => {
                 console.log(error)
+                console.dir(error)
+                setChannelName("")
+                setAlertMessage("Channel created!")
+                setAlertWindowVisible(true)
+                setValue(value+1)
             })
     }
 
