@@ -18,7 +18,7 @@ function AddChannel(props) {
             "user_ids": [userId]
         }
 
-        await fetch("http://206.189.91.54/api/v1/channels",
+        await fetch("https://slackapi.avionschool.com/api/v1/channels",
             {method: "POST",
             headers: userHeaders, 
             mode: "cors",
